@@ -1,13 +1,11 @@
 <template>
     <div>
-        <div class="card cardSpace bgCard shadow-lg border border-5 border-success" style="width: 10rem;">
+        <div class="card cardSpace bgCard shadow-lg border border-5 border-success" style="width: 11rem;">
             <img :src="info.poster" class="card-img-top" alt="info.title">
             <div class="card-body text-white">
                 <h5>{{info.title}}</h5>
                 <hr>
                 <div>{{info.author}}</div>
-                <div>Genere : {{info.genre}}</div>
-                <hr>
                 <div><small>Data uscita : {{info.year}}</small></div>
             </div>
         </div>  
