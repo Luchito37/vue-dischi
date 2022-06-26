@@ -6,6 +6,7 @@
                 <h5>{{info.title}}</h5>
                 <hr>
                 <div>{{info.author}}</div>
+                <div>{{info.genre}}</div>
                 <div><small>Data uscita : {{info.year}}</small></div>
             </div>
         </div>  
@@ -28,5 +29,6 @@ export default {
     }
     .bgCard{
             background: linear-gradient(316deg, rgb(46 46 46) 0%, rgb(0 0 0) 100%);
+            height:400px
     }
 </style>
