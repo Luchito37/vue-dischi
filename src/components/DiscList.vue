@@ -1,9 +1,12 @@
 <template>
     <div>
         <div class="container">
+            <div>
+                <SearchAlbum @search="ricercaEffettuata" @reset="resetEffettuato"></SearchAlbum>
+            </div>
             <div class="row ">
                 <div class="theSpace d-flex flex-wrap">
-                    <div class="col mb-3" v-for="album in listaAlbum" :key="album.author">
+                    <div class="col mb-3" v-for="album in listaAlbum" :key="album.response">
                         <AlbumCard :info="album"></AlbumCard>
                     </div>
                 </div>
@@ -17,11 +20,13 @@
 import axios from "axios";
 
 import AlbumCard from "./AlbumCard.vue"
+import SearchAlbum from "./SearchAlbum.vue"
 
 export default {
     name: "DiscList",
     components: {
         AlbumCard,
+        SearchAlbum
     },
 
     data(){
@@ -32,12 +37,25 @@ export default {
         };
     },
     methods:{
-        fetchDiscList() {
-            axios.get(this.apiUrl).then((oggetto) => {
+        fetchDiscList(searchAlbum) {
+            axios.get(this.apiUrl, {
+                params: {
+                    author: searchAlbum,
+                }
+            }).then((oggetto) => {
 
                 this.listaAlbum = oggetto.data.response
+            })
+            .catch(() => {
+                this.listaAlbum = []
             });
         },
+        ricercaEffettuata(searchAlbum){
+            this.fetchDiscList(searchAlbum)
+        },
+        resetEffettuato(){
+            this.fetchDiscList()
+        }
 
     },
     //questo indica che la funzione viene avviata 
