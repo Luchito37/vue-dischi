@@ -23,12 +23,16 @@ export default {
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
     .cardSpace{
         padding: 10px;
     }
     .bgCard{
             background: linear-gradient(316deg, rgb(46 46 46) 0%, rgb(0 0 0) 100%);
-            height:400px
+            height:400px;
+
+        &:hover{
+            background: linear-gradient(316deg, rgb(80 80 80) 0%, rgb(0 0 0) 100%);
+        }    
     }
 </style>
